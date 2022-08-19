@@ -3,6 +3,7 @@ import "./App.css";
 import { Form } from "./Form";
 import { LoaneeCard } from "./loaneeCard";
 import mockData from "./mockData";
+import axios from "axios";
 
 export function checkFloatNumber(num: number) {
   return Number(num) === num && num % 1 !== 0;
@@ -41,23 +42,29 @@ function App() {
 
   const [testData, setTestData] = useState(mockDataTyped);
 
-  /* useEffect(() => {
-    fetch("./mockData")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("this error is " + response.status);
-        }
+  // useEffect(() => {
+  //   fetch("https://www.loan-qualification.herokuapp.com/data/test")
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("this error is " + response.status);
+  //       }
 
-        return response.json();
-      })
-      .then((actualData) => {
-        setTestData(actualData);
-        console.log(actualData);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);*/
+  //       return response.json();
+  //     })
+  //     .then((actualData) => {
+  //       // setTestData(actualData);
+  //       console.log(actualData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://www.loan-qualification.herokuapp.com/data/test")
+      .then(console.error());
+  }, []);
 
   const styles = {
     display: "grid",
