@@ -32,7 +32,18 @@ export function Form() {
     };
 
     axios
-      .post("http://127.0.0.1:5000/predict/", { loanObject })
+      .post("http://127.0.0.1:5000/predict/", {
+        Gender: Gender,
+        Married: Married,
+        Education: Education,
+        Self_Employed: Self_Employed,
+        ApplicantIncome: ApplicantIncome,
+        CoapplicantIncome: CoapplicantIncome,
+        LoanAmount: LoanAmount,
+        Loan_Amount_Term: Loan_Amount_Term,
+        Credit_History: Credit_History,
+        Property_Area: Property_Area,
+      })
       .then((res) => {
         console.log(res);
       })
