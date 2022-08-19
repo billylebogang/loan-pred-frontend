@@ -1,6 +1,6 @@
 import React from "react";
 
-interface loaneeType {
+type loaneeType = {
   Loan_ID: string;
   Gender: string;
   Married: string;
@@ -13,9 +13,22 @@ interface loaneeType {
   Loan_Amount_Term: string;
   Credit_History: string;
   Property_Area: string;
-}
+};
 
-export function LoaneeCard({ props }) {
+export const LoaneeCard: React.FC<loaneeType> = ({
+  Loan_ID,
+  Gender,
+  Married,
+  Dependents,
+  Education,
+  Self_Employed,
+  ApplicantIncome,
+  CoapplicantIncome,
+  LoanAmount,
+  Loan_Amount_Term,
+  Credit_History,
+  Property_Area,
+}) => {
   const cardStyle = {
     margin: "30px auto",
     width: "300px",
@@ -31,17 +44,17 @@ export function LoaneeCard({ props }) {
     <div style={cardStyle}>
       <h4>loan Details</h4>
 
-      <p>loan id: {props.Loan_ID} </p>
-      <p>Gender: {props.Gender} </p>
-      <p>Married: {props.Married} </p>
-      <p>Dependents: {props.Dependents} </p>
-      <p>Edication: {props.Education} </p>
-      <p>Self employed: {props.Self_Employed} </p>
-      <p>Applicant income: {props.ApplicantIncome} </p>
-      <p>Co-applicant income: {props.CoapplicantIncome} </p>
-      <p>loan amount: {props.LoanAmount} </p>
-      <p>loan amount term: {props.Loan_Amount_Term} </p>
-      <p>Property area: {props.Property_Area} </p>
+      <p>loan id: {Loan_ID} </p>
+      <p>Gender: {Gender} </p>
+      <p>Married: {Married} </p>
+      <p>Dependents: {Dependents} </p>
+      <p>Edication: {Education} </p>
+      <p>Self employed: {Self_Employed} </p>
+      <p>Applicant income: {ApplicantIncome} </p>
+      <p>Co-applicant income: {CoapplicantIncome} </p>
+      <p>loan amount: {LoanAmount} </p>
+      <p>loan amount term: {Loan_Amount_Term} </p>
+      <p>Property area: {Property_Area} </p>
     </div>
   );
-}
+};

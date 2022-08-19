@@ -62,8 +62,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://www.loan-qualification.herokuapp.com/data/test")
-      .then(console.error());
+      .get("http://127.0.0.1:5000/data/test")
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   const styles = {
@@ -79,7 +80,20 @@ function App() {
 
         <div style={styles}>
           {testData.map((loanObject) => (
-            <LoaneeCard props={loanObject} />
+            <LoaneeCard
+              Loan_ID={loanObject.Loan_ID}
+              Gender={loanObject.Gender}
+              Married={loanObject.Married}
+              Dependents={loanObject.Dependents}
+              Education={loanObject.Education}
+              Self_Employed={loanObject.Self_Employed}
+              ApplicantIncome={loanObject.ApplicantIncome}
+              CoapplicantIncome={loanObject.CoapplicantIncome}
+              LoanAmount={loanObject.LoanAmount}
+              Loan_Amount_Term={loanObject.Loan_Amount_Term}
+              Credit_History={loanObject.Credit_History}
+              Property_Area={loanObject.Property_Area}
+            />
           ))}
         </div>
         <Form />
